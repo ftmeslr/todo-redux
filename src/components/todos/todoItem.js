@@ -1,4 +1,4 @@
-import { deleteTodo } from "../../store/slices/todosSlice";
+import { deleteTodo, updateTodo } from "../../store/slices/todosSlice";
 import { useDispatch } from "react-redux";
 
 export default function TodoItem({ item }) {
@@ -6,6 +6,7 @@ export default function TodoItem({ item }) {
   const todoDeletHandler = () => {
     dispatch(deleteTodo(item.id));
   };
+  const toggleDoneTodoHandle = () => dispatch(updateTodo({ id: item.id }));
   return (
     <>
       <div className="flex mb-4 items-center">
@@ -17,11 +18,17 @@ export default function TodoItem({ item }) {
           {item.text}
         </p>
         {item.done ? (
-          <button className="p-1 px-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-600 border-green-600 hover:bg-green-600">
+          <button
+            onClick={toggleDoneTodoHandle}
+            className="p-1 px-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-600 border-green-600 hover:bg-green-600"
+          >
             Done
           </button>
         ) : (
-          <button className="p-1 px-2 ml-4 mr-2 border-2 rounded hover:text-white text-gray-400 border-gray-400 hover:bg-gray-400">
+          <button
+            onClick={toggleDoneTodoHandle}
+            className="p-1 px-2 ml-4 mr-2 border-2 rounded hover:text-white text-gray-400 border-gray-400 hover:bg-gray-400"
+          >
             Not Done
           </button>
         )}
