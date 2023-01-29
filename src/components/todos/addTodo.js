@@ -6,7 +6,6 @@ export default function AddTodo() {
   const [inputTodo, setInputTodo] = useState("");
   const inputTodoHandler = (e) => setInputTodo(e.target.value);
   const addTodoHandler = () => {
-    console.log(inputTodo);
     if (inputTodo.length > 0) {
       dispatch(
         addTodo({

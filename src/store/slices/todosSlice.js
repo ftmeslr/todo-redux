@@ -9,9 +9,12 @@ const todoSlice = createSlice({
     addTodo: (state, action) => {
       state.list.push(action.payload);
     },
+    deleteTodo: (state, action) => {
+      state.list = state.list.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
 
-export const { addTodo } = todoSlice.actions; // برای اینکه addtodo داشته باشم باید action اش رو برگردونم
+export const { addTodo, deleteTodo } = todoSlice.actions; // برای اینکه addtodo داشته باشم باید action اش رو برگردونم
 
 export default todoSlice.reducer;

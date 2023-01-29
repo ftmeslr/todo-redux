@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 export default function TodosSection() {
   const todos = useSelector((state) => state.todos.list);
 
+  console.log(todos);
   return (
     <div className="App">
       <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
@@ -20,7 +21,6 @@ export default function TodosSection() {
           </div>
         </div>
       </div>
-      );
     </div>
   );
 }
