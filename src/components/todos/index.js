@@ -1,23 +1,16 @@
 import { useSelector } from "react-redux";
-
+import AddTodo from "./addTodo";
 export default function TodosSection() {
   const todos = useSelector((state) => state.todos.list);
   console.log(todos);
+  
   return (
     <div className="App">
       <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
         <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-3xl border">
           <div className="mb-4">
             <h1 className="text-gray-700 text-3xl font-bold">Todo List</h1>
-            <div className="flex mt-4">
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-800"
-                placeholder="Add Todo"
-              />
-              <button className="p-2 border-2 rounded text-teal-500 border-teal-500  hover:text-white hover:bg-teal-500">
-                Add
-              </button>
-            </div>
+            <AddTodo />
           </div>
           <div>
             <div className="flex mb-4 items-center">
