@@ -1,9 +1,7 @@
 import { addTodo } from "../../store/slices/todosSlice";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 export default function AddTodo() {
-  const todos = useSelector((state) => state.todos.list);
   const dispatch = useDispatch();
   const [inputTodo, setInputTodo] = useState("");
   const inputTodoHandler = (e) => setInputTodo(e.target.value);
@@ -18,7 +16,6 @@ export default function AddTodo() {
         })
       );
       setInputTodo("");
-      console.log(todos);
     }
   };
   return (
